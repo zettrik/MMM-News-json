@@ -2,10 +2,12 @@
 A module for MagicMirror<sup>2</sup> that displays news, events or any kind of
 information as long as it has a title, an image and a text given in json format.
 
+
 It is derived from DailyXKCD. Thanks for that!
 
 ## Dependencies
-  * A [MagicMirror<sup>2</sup>](https://github.com/MichMich/MagicMirror) installation
+  * a [MagicMirror<sup>2</sup>](https://github.com/MichMich/MagicMirror) installation
+  * your content as source in a json format
 
 ## Installation
   1. Clone this repo into your `modules` directory.
@@ -36,3 +38,20 @@ It is derived from DailyXKCD. Thanks for that!
 | `limitComicHeight` | Set to limit the height of the comic (in px), default is `450`. The comic will scroll downwards every few seconds, if it is heigher. |
 | `scrollInterval` | How often to scroll long comics (in ms), default is `8000` (every 8 seconds). |
 | `scrollRatio` | Set how much of the visible height is being scrolled every time. The value should be between `0.0` and `1.0`, default is `0.8` so it scrolls down by 80%. |
+
+## json format
+You can provide any content as long as it follows this json format:
+
+'''
+{ "nodes": 
+    [{ "node":
+        { "title": " ", "text": " ", "image": "https://...jpg" },
+        { "title": " ", "text": " ", "image": "https://...jpg" }
+    }]
+}
+'''
+
+### Drupal7 as json source
+Install the Drupal module ''views_datasource'' and enable ''views_json''. Then
+add a view with json output format and add the fields title, text and image.
+
